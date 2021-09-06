@@ -1,0 +1,486 @@
+ASSIGNMENT 1.1
+
+
+	BEGIN
+		DECLARE user_id AS STRING
+		DECLARE user_name AS STRING
+		DECLARE last_month_reading AS FLOAT
+		DECLARE current_month_reading AS FLOAT
+		PROMPT"Enter the user id " AND STORE IN user_id
+		PROMPT"Enter the user name" AND STORE IN user_name
+		PROMPT"Enter the user consumed" AND STORE IN unit_consumed
+		PROMPT"Enter the user amount" AND STORE IN user_amount
+		INITIALIZE fixed_charge = 100
+		unit_consumed = last_month_reading - current_month_reading
+		net_amount = unit_consumed * 1.15 + fixed_charge
+		PRINT"user id " + user_id
+		PRINT"user name " + user_name
+		PRINT" unit consumed" + unit_consumed
+		PRINT"net amount " + net_amount
+	END
+_____________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 1.2
+
+
+	BEGIN
+		DECLARE employ_exp AS INTEGER
+		PROMPT" The experience of the employee " AND STORE IN employ_exp
+		IF ( employ_exp >= 10 )
+		PRINT "Red"
+		ELSE
+		IF ( employ_exp >= 5 )
+		PRINT "yellow"
+		ELSE
+		IF ( employ_exp >= 3 )
+		PRINT " Grey "
+		ELSE
+		PRINT " blue"
+	END
+
+_______________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 1.3
+
+
+	BEGIN
+		DECLARE num AS INTEGER
+		INITIALIZE a = 0
+		INITIALIZE b = 1
+		DECLARE sum AS INTEGER
+		PROMPT "enter the value of N" AND STORE IN num
+		DO WHILE 
+			num<= MAX
+			sum = a + b 
+			PRINT"" + sum
+			a = b
+			b =sum 
+		END WHILE
+	END
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 1.4
+
+	BEGIN
+		DECLARE num AS INTEGER
+		DECLARE r AS INTEGER
+		DECLARE temp AS INTEGER
+		INITIALIZE sum = 0
+		PRINT"enter the number " + num
+		temp = num
+		WHILE ( num!=0 )
+			r=num%10
+			num=num/10
+			sum=sum+(r*r*r)
+		END WHILE
+		IF ( sum == temp )
+			PRINT "number is an amstrong number" + temp
+			PRINT "number is not an amstrong number" + temp
+		END IF
+	END
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGMENT 1.5
+
+	BEGIN
+		DECLARE binary_num AS LONG
+		INITIALIZE Ddecimal_num = 0
+		INITIALIZE i = 0
+		INITIALIZE rem = 0
+		PROMPT"enter binary number" AND STORE IN binary_num
+		WHILE (binary_num !=0)
+			rem = binary_num % 10
+			binary_num = binary_num/10
+			decimal_num = decimal_num + rem * pow(2,i)
+			i=i+1
+		END WHILE
+	END
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 1.6
+
+	BEGIN
+		DECLARE number[10] AS INTEGER  ARRAY
+		DECLARE smallest AS INTEGER
+		INITIALIZE smallest = 0 
+		FOR i=0 TO 9
+		ACCEPT number [i]
+		END FOR
+		smallest = number [0]
+		FOR index = 0 TO 9
+			IF ( number [i] < smallest THEN smallest = number [i] )
+			END IF
+		END FOR
+		PRINT ""smallest
+		PRINT"even number"
+		FOR i= 0 TO 9
+			IF( number[i] % 2 ) = 0 
+			PRINT "" number[i]
+			END IF
+		END FOR
+		PRINT " odd number "
+		FOR i = 0 TO 9 
+			IF (number [i]% 2)= 0
+			PRINT number[i]
+			END IF
+		END FOR
+	END
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 1.7
+
+	BEGIN
+		DECLARE tax_rate = 0.56
+		PROMPT " enter the price of the product" AND STORE IN price
+		total_cost = price * tax_rate
+		PRINT"total price of product is "total_cost
+	END
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 2.1
+
+BEGIN
+		DECLARE user_id AS STRING
+		DECLARE user_name AS STRING
+		DECLARE last_month_reading AS FLOAT
+		DECLARE current_month_reading AS FLOAT
+		PROMPT"Enter the user id " AND STORE IN user_id
+		PROMPT"Enter the user name" AND STORE IN user_name
+		PROMPT"Enter the user consumed" AND STORE IN unit_consumed
+		PROMPT"Enter the user amount" AND STORE IN user_amount
+		INITIALIZE fixed_charge = 100
+		unit_consumed = last_month_reading - current_month_reading
+		net_amount = unit_consumed * 1.15 + fixed_charge
+		PRINT"user id " + user_id
+		PRINT"user name " + user_name
+		PRINT" unit consumed" + unit_consumed
+		PRINT"net amount " + net_amount
+	END
+
+_______________________________________________________________________________________________________________________________________________________________________________________
+
+
+ASSIGNMENT 2.2
+
+	BEGIN
+		DECLARE num,rem AS INTEGER
+		DECLRE sum AS INTEGER AND STORE sum = 0
+		PROMPT "enter the number"
+		ACCEPT num
+		sumofdigitd(num);
+		END
+		SUB sumofdigitd(num1)
+		WHILE(num1!=0)
+			rem = num1%10
+				sum=sum+rem
+				num1=num1/10
+		END WHILE
+		PRINT "sum of the digits is " , sum
+	END SUB
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 2.3
+
+	BEGIN
+		DECLARE numbers[10] AS INTEGER ARRAY
+		PROMPT "enter 10 numbers"
+		FOR index = 0 TO 9
+		ACCEPT numbers[index]
+		unique(numbers[10]);
+	END
+		SUB unique(num[n])
+		DECLARE count AS INTEGER
+		FOR i= 0 to 9
+		FOR j= 0 to 9
+			IF num[i]=num[j] THEN
+			IF i NOT EQUAL TO j
+			count = count +1
+			ELSE CONTINUE
+			END IF
+		END FOR
+		PRINT " no of unique no " , count
+		END SUB
+
+______________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 2.4
+
+RECORD employee
+	DECLARE empld AS INTEGER
+	DECLARE employment TYPE AS INTEGER
+END RECORD
+
+BEGIN
+	DECLARE emp AS employee
+	DECLARE leaves , totalleaves AS INTEGER
+	FOR index = 1 TO 5
+		PROMPT "enter the employeeid" AND STORE IN emp.empid 
+		PROMPT "enter the employmenttype" AND STORE IN emp.employmenttype
+	END FOR	
+	FOR index = 1 TO 5
+		IF(employmenttype=='PERMANENT') THEN
+			leaves=2;
+		ELSE IF (employeetype=='CONTRACT') THEN
+			leaves=1;
+		END IF
+		Totalleaves=leaves*12;
+		PRINT"employeeid", emp.empld
+		PRINT"total available leaves are", totalleaves
+	END FOR
+END
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 3.1
+
+* This algorithm computes the numerical difference between maximum and minimum number from the n given .
+
+* Basic operation is checking two numbers and assigning the smaller or bigger number to a variable .
+
+* It depends of n . Which is the number of input
+
+*  x<-A[0];Y<-A[0];SUM<-0;
+   for i<-1 TO n-1 DO
+      IF a[i],x
+          x<-a[i]
+      IF a[i]<Y
+          Y,_A[I]
+      sum<-sum + 1
+      PRINT sum
+     return y-x
+
+* o(n)
+
+_______________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 3.2
+
+input -> A[5]=[1,2,3,4,5]
+OUTPUT -> 1
+
+_____________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 3.3
+
+  O(n^3)
+ 
+______________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 3.4
+
+* The algorithm computes the sum of 1 to n numbers .
+
+* The effeciency class for the algorithm is O(n) . 
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 3.5
+
+SUM find(w[] ,c)
+	DECLARE n , count AS INTEGER
+	INITIALIZE count TO 0
+	n = length of w[]
+	FOR i = 1 TO n
+		IF  c=w[i]
+		count=count+1
+		END IF
+	END FOR
+	RETUEN count
+END SUM
+
+______________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 3.6
+
+	BEGIN
+		DECLARE input[5] AS INTEGER
+		DISPLAY "enter the numbers"
+		FOR index 0 T O4
+			ACCEPT input[index]
+		END FOR
+		INPUT=CALL sort(input)
+	END
+	SUB sort(input[5])
+	FOR index 0 to 9
+	FOR index2 9 TO 0
+		IF input[index]>input[index]
+			discriminent=input[index]
+			input[index]=input[index2]
+			input[index]=discriminent
+		END IF
+	END FOR
+	IF input[index]%2==0
+		EVEN[I]=input[index]
+		CALCULATE I=I+1
+		ELSE
+		ODD[J]=input[index]
+		CALCULATE J=J+1
+	END IF
+	END FOR
+	RETURN input
+	END SUB
+	SUB search(searchterm,input)
+	DECLARE midterm , first , last AS INTEGER
+	Midterm=2
+	first=0
+	last=4
+	WHILE first<=last
+	IF input[midterm]<searchterm
+		first=midterm+1
+		ELSE IF input[midterm]==searchterm
+			BREAK
+			ELSE
+			CALCULATE last=midterm-1
+			CALCULATE midterm=(first+last)/2
+	END IF
+	IF first>last
+		DISPLAY "NOT FOUND"
+	END IF
+	END WHILE
+	END SUB
+______________________________________________________________________________________________________________________________________________________________________________________
+ASSIGNMENT 3.7 
+
+SUB check(a,s)
+FOR i=0 TO n
+FOR j=0 TO n
+IF a[i]=s[j]
+FOR k =0 TO length(s)-1
+count ++
+END IF
+END FOR
+END IF
+END FOR
+IF count = length(s)-1
+RETURN 1
+ELSE
+RETURN 0
+END SUB 
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 4.2
+
+RECORD employee
+	DECLARE empld AS INTEGER
+	DECLARE employment TYPE AS INTEGER
+END RECORD
+
+BEGIN
+	DECLARE emp AS employee
+	DECLARE leaves , totalleaves AS INTEGER
+	FOR index = 1 TO 5
+		ReDo:
+		PROMPT "enter the employeeid" AND STORE IN emp.empid
+		IF emp.employeeID=='\a'
+			PRINT "enter employee ID "
+			GOTO ReDo
+		END IF
+		ReEnter:
+		PROMPT "enter the employmenttype" AND STORE IN emp.employmenttype
+	END FOR	
+	FOR index = 1 TO 5
+		IF(employmenttype=='PERMANENT') THEN
+			leaves=2;
+		ELSE IF (employeetype=='CONTRACT') THEN
+			leaves=1;
+		ELSE
+			PRINT"enter permanent r contract"
+			GoTO ReEnter
+		END IF
+		Totalleaves=leaves*12;
+		PRINT"employeeid", emp.empld
+		PRINT"total available leaves are", totalleaves
+	END FOR
+END
+________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 4.3
+
+	BEGIN 
+		DECLARE CONSTANT tax = 0.56
+		DECLARE price AS INTEGER
+		DECLARE quality AS INTEGER
+		DECALRE totalprice AS INTEGER
+		PRINT"enter the price of the product "
+		ACCEPT PRICE
+		IF isvalid(price)!=true
+			PRINT"enter valid price data"
+			GOTO pricerepeat
+		END IF
+		quantityrepeat:
+		PRINT"enter quantity of the product"
+		ACCEPT quantity
+		IF isvalid(price)!=TRUE
+			PRINT"enter valid quantity data"
+			GOTO quantityrepeat
+		END IF
+		CALCULATE totalprice=price * quantity
+		CALCULATE tax=taxprice*taxrate
+		PRINT"total price of the product is ", + total price
+	END
+	SUB isvalid(data)
+	IF(isdigits(data))
+	RETURN true
+	else
+	RETURN false
+	END IF 
+	END SUB
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 5.1
+
+Requirement id  : 1
+Testcase id     : TC_1
+Test condition  : Years of experience
+Test case       : Above 10 , Below 10 , Between 0-10
+Test data       : 18, -5 ,7
+Expected result : Red , Invalid , Yellow 
+
+Requirement id  : 2
+Testcase id     : TC_2
+Test condition  : Total number of leaves
+Test case       : permanent , contract
+Test data       : permanent , contract
+Expected result : 24 , 12
+
+Requirement id  : 3
+Testcase id     : TC_3
+Test condition  : Sum of numbers
+Test case       : n<0 , n=0,117
+Test data       : -21,0,117
+Expected result : Invalid , 0 , 9
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ASSIGNMENT 5.2
+
+Requirement id  : 1
+Testcase id     : TC_1
+Test condition  : Years of experience
+Test case       : Above 10 , Below 10 , Between 0-10
+Test data       : 18, -5 ,7
+Expected result : Red , Invalid , Yellow 
+
+Requirement id  : 2
+Testcase id     : TC_2
+Test condition  : Total number of leaves
+Test case       : permanent , contract
+Test data       : permanent , contract
+Expected result : 24 , 12
+
+Requirement id  : 3
+Testcase id     : TC_3
+Test condition  : Substring in string
+Test case       : String with substring , string without substring
+Test data       : (Ambulance , Lan ) ,(Ambulance , Pen)
+Expected result : Substring foumd in source string , Substring not found in source string
+
+________________________________________________________________________________________________________________________________________________________________________________________
